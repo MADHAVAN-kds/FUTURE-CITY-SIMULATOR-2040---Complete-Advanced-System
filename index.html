@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Future City Simulator 2040 | Advanced AI-Driven Urban Management</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Rajdhani:wght@300;400;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <!-- Header -->
+        <header class="header">
+            <div class="header-content">
+                <h1 class="main-title">
+                    <span class="title-icon">🏙️</span>
+                    FUTURE CITY SIMULATOR 2040
+                    <span class="ai-badge">AI-POWERED</span>
+                </h1>
+                <div class="header-stats">
+                    <div class="stat-item">
+                        <span class="stat-label">YEAR</span>
+                        <span class="stat-value" id="currentYear">2040</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-label">CITY LEVEL</span>
+                        <span class="stat-value" id="cityLevel">1</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-label">AI STATUS</span>
+                        <span class="stat-value status-active" id="aiStatus">ACTIVE</span>
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        <!-- Main Dashboard -->
+        <div class="dashboard">
+            <!-- Left Panel: City Stats -->
+            <div class="panel panel-left">
+                <h2 class="panel-title">📊 CITY METRICS</h2>
+                
+                <div class="metric-card">
+                    <div class="metric-header">
+                        <span class="metric-icon">👥</span>
+                        <span class="metric-name">Population</span>
+                    </div>
+                    <div class="metric-value" id="population">10,000</div>
+                    <div class="metric-bar">
+                        <div class="metric-fill" id="populationBar" style="width: 10%"></div>
+                    </div>
+                    <div class="metric-trend" id="populationTrend">+0%</div>
+                </div>
+
+                <div class="metric-card">
+                    <div class="metric-header">
+                        <span class="metric-icon">💰</span>
+                        <span class="metric-name">Treasury</span>
+                    </div>
+                    <div class="metric-value" id="money">$1,000,000</div>
+                    <div class="metric-bar">
+                        <div class="metric-fill" id="moneyBar" style="width: 50%"></div>
+                    </div>
+                    <div class="metric-trend" id="moneyTrend">+0%</div>
+                </div>
+
+                <div class="metric-card">
+                    <div class="metric-header">
+                        <span class="metric-icon">😊</span>
+                        <span class="metric-name">Happiness</span>
+                    </div>
+                    <div class="metric-value" id="happiness">75%</div>
+                    <div class="metric-bar">
+                        <div class="metric-fill happiness-fill" id="happinessBar" style="width: 75%"></div>
+                    </div>
+                    <div class="metric-trend" id="happinessTrend">+0%</div>
+                </div>
+
+                <div class="metric-card">
+                    <div class="metric-header">
+                        <span class="metric-icon">🌿</span>
+                        <span class="metric-name">Environment</span>
+                    </div>
+                    <div class="metric-value" id="environment">80%</div>
+                    <div class="metric-bar">
+                        <div class="metric-fill environment-fill" id="environmentBar" style="width: 80%"></div>
+                    </div>
+                    <div class="metric-trend" id="environmentTrend">+0%</div>
+                </div>
+
+                <div class="metric-card">
+                    <div class="metric-header">
+                        <span class="metric-icon">🔬</span>
+                        <span class="metric-name">Technology</span>
+                    </div>
+                    <div class="metric-value" id="technology">50%</div>
+                    <div class="metric-bar">
+                        <div class="metric-fill technology-fill" id="technologyBar" style="width: 50%"></div>
+                    </div>
+                    <div class="metric-trend" id="technologyTrend">+0%</div>
+                </div>
+
+                <div class="metric-card">
+                    <div class="metric-header">
+                        <span class="metric-icon">⚡</span>
+                        <span class="metric-name">Energy</span>
+                    </div>
+                    <div class="metric-value" id="energy">100%</div>
+                    <div class="metric-bar">
+                        <div class="metric-fill energy-fill" id="energyBar" style="width: 100%"></div>
+                    </div>
+                    <div class="metric-trend" id="energyTrend">+0%</div>
+                </div>
+            </div>
+
+            <!-- Center Panel: City Visualization -->
+            <div class="panel panel-center">
+                <div class="city-view-header">
+                    <h2 class="panel-title">🏙️ CITY VIEW</h2>
+                    <div class="view-controls">
+                        <button class="control-btn" id="zoomIn">🔍+</button>
+                        <button class="control-btn" id="zoomOut">🔍-</button>
+                        <button class="control-btn" id="rotateView">🔄</button>
+                    </div>
+                </div>
+                
+                <canvas id="cityCanvas"></canvas>
+                
+                <div class="city-info">
+                    <div class="info-item">
+                        <span class="info-label">🏢 Buildings:</span>
+                        <span class="info-value" id="buildingCount">5</span>
+                    </div>
+                    <div class="info-item">
+                        <span class="info-label">🚗 Traffic Flow:</span>
+                        <span class="info-value" id="trafficFlow">Normal</span>
+                    </div>
+                    <div class="info-item">
+                        <span class="info-label">🌡️ Temperature:</span>
+                        <span class="info-value" id="temperature">22°C</span>
+                    </div>
+                    <div class="info-item">
+                        <span class="info-label">💨 Air Quality:</span>
+                        <span class="info-value" id="airQuality">Good</span>
+                    </div>
+                </div>
+
+                <!-- Building Menu -->
+                <div class="building-menu">
+                    <h3 class="menu-title">🏗️ CONSTRUCTION</h3>
+                    <div class="building-grid" id="buildingGrid">
+                        <!-- Buildings will be dynamically added -->
+                    </div>
+                </div>
+            </div>
+
+            <!-- Right Panel: AI & Events -->
+            <div class="panel panel-right">
+                <h2 class="panel-title">🤖 AI ADVISOR</h2>
+                
+                <div class="ai-assistant">
+                    <div class="ai-avatar">🤖</div>
+                    <div class="ai-message-box" id="aiMessageBox">
+                        <p class="ai-message">Welcome, Mayor! I'm your AI assistant. I'll help you build the city of tomorrow.</p>
+                    </div>
+                </div>
+
+                <div class="ai-recommendations" id="aiRecommendations">
+                    <h3 class="section-title">💡 AI RECOMMENDATIONS</h3>
+                    <div class="recommendation-list" id="recommendationList">
+                        <!-- AI recommendations will appear here -->
+                    </div>
+                </div>
+
+                <div class="events-section">
+                    <h3 class="section-title">📰 CITY EVENTS</h3>
+                    <div class="events-list" id="eventsList">
+                        <!-- Events will appear here -->
+                    </div>
+                </div>
+
+                <div class="quick-actions">
+                    <h3 class="section-title">⚡ QUICK ACTIONS</h3>
+                    <button class="action-btn" id="emergencyBtn">🚨 Emergency Response</button>
+                    <button class="action-btn" id="researchBtn">🔬 Research Tech</button>
+                    <button class="action-btn" id="festivalsBtn">🎉 Host Festival</button>
+                    <button class="action-btn" id="policyBtn">📋 City Policies</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Control Bar -->
+        <div class="control-bar">
+            <button class="control-button" id="playBtn">▶️ PLAY</button>
+            <button class="control-button" id="pauseBtn">⏸️ PAUSE</button>
+            <button class="control-button speed-btn" id="speed1x">1x</button>
+            <button class="control-button speed-btn" id="speed2x">2x</button>
+            <button class="control-button speed-btn active" id="speed4x">4x</button>
+            <button class="control-button" id="saveBtn">💾 SAVE</button>
+            <button class="control-button" id="loadBtn">📂 LOAD</button>
+            <button class="control-button" id="resetBtn">🔄 RESET</button>
+        </div>
+
+        <!-- Notifications -->
+        <div class="notifications" id="notifications"></div>
+
+        <!-- Modal for Policies -->
+        <div class="modal" id="policyModal">
+            <div class="modal-content">
+                <span class="close-modal" id="closeModal">&times;</span>
+                <h2>📋 City Policies</h2>
+                <div class="policy-grid" id="policyGrid">
+                    <!-- Policies will be added here -->
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="js/city.js"></script>
+    <script src="js/ai-engine.js"></script>
+    <script src="js/visualization.js"></script>
+    <script src="js/events.js"></script>
+    <script src="js/main.js"></script>
+</body>
+</html>
